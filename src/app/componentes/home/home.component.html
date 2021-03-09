@@ -1,0 +1,15 @@
+<div>
+    <div class="card shadow mt-4 py-3 px-4" *ngFor='let juego of juegos' style="height: 5rem;">
+        <div class="row">
+            <div class="col-sm h-100 justify-content-center align-items-center">
+                <p><a href="">{{ juego.nombre }}</a></p>
+            </div>
+            <div class="col-sm">
+                <p>{{ juego.fecha_lanzamiento }}</p>
+            </div>
+            <div class="col-sm">
+                <p>{{ juego.genero }}</p>
+            </div>
+        </div>
+    </div>
+</div>
