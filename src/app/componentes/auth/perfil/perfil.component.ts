@@ -11,12 +11,12 @@ export class PerfilComponent implements OnInit {
 
   constructor(private servicioUsuario: UsuarioService) { }
 
-  usuario: Usuario
+  usuario: Usuario = {}
 
   ngOnInit(): void {
     this.getUsuario()
   }
-// NO FUNCIONA AL LOGUEARSE 
+  
   getUsuario() {
     this.servicioUsuario.obtenerUsuario().subscribe(
       respuesta => {

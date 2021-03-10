@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
     this.servicioUsuario.login(this.formLogin.value).subscribe(
       respuesta => {
         console.log(respuesta)
+        this.servicioUsuario.guardarToken(respuesta.token);
       },
       error => console.log(error)
     )

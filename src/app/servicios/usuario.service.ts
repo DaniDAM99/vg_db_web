@@ -19,4 +19,22 @@ export class UsuarioService {
   obtenerUsuario(): Observable<any> {
     return this.http.get(url)
   }
+
+  guardarToken(token: string) {
+    console.log('token guardado')
+    localStorage.setItem('userToken', token)
+  }
+
+  leerToken(): string {
+    return localStorage.getItem('userToken')
+  }
+
+  isLogged(): boolean {
+    return !!localStorage.getItem('userToken')
+  }
+
+  logOut(): void {
+    localStorage.removeItem('userToken')
+  }
+
 }
