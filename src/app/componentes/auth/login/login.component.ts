@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb:FormBuilder, private servicioUsuario:UsuarioService) { }
+  constructor(private fb:FormBuilder, private servicioUsuario:UsuarioService, private irHacia:Router) { }
 
   formLogin = this.fb.group({
     email:[''],
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
       respuesta => {
         console.log(respuesta)
         this.servicioUsuario.guardarToken(respuesta.token);
+        this.irHacia.navigate(["/perfil"])
       },
       error => console.log(error)
     )

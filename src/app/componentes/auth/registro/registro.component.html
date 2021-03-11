@@ -1,0 +1,32 @@
+<h3>Registro</h3>
+<form [formGroup]="formRegister" (submit)="registrar()">
+    <div class="input-group mb-2">
+        <div class="input-group-prepend" style="width: 170px;">
+            <span class="input-group-text" style="width: 100%;">Usuario:</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Usuario" formControlName="username" >
+    </div>
+    
+    <div class="input-group mb-2">
+        <div class="input-group-prepend" style="width: 170px;">
+            <span class="input-group-text" style="width: 100%;">Contraseña:</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Contraseña" formControlName="password" ><br/>
+    </div>
+
+    <div class="input-group mb-2">
+        <div class="input-group-prepend" style="width: 170px;">
+            <span class="input-group-text" style="width: 100%;">Repetir contraseña:</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Repetir contraseña" formControlName="password2" ><br/>
+    </div>
+
+    <div class="input-group mb-2">
+        <div class="input-group-prepend" style="width: 170px;">
+            <span class="input-group-text" style="width: 100%;">Email:</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Email" formControlName="email" ><br/>
+    </div>
+
+    <input type="submit" class="btn btn-primary" [disabled]='formRegister.invalid' value="Registrar">
+</form>

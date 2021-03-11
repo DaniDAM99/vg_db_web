@@ -16,8 +16,20 @@ export class UsuarioService {
     return this.http.post(url + "/login", usuario)
   }
 
+  registrar(usuario: Usuario): Observable<any> {
+    return this.http.post(url + "/registrar", usuario)
+  }
+
   obtenerUsuario(): Observable<any> {
     return this.http.get(url)
+  }
+
+  editarUsuario(usuario: Usuario): Observable<any> {
+    return this.http.put(url, usuario)
+  }
+
+  eliminarUsuario(): Observable<any> {
+    return this.http.delete(url)
   }
 
   guardarToken(token: string) {

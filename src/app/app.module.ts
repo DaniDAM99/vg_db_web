@@ -10,6 +10,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HomeComponent } from './componentes/home/home.component';
 import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
 import { TokenInterceptorInterceptor } from './auth/token-interceptor.interceptor';
+import { RegistroComponent } from './componentes/auth/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { TokenInterceptorInterceptor } from './auth/token-interceptor.intercepto
     NavegacionComponent,
     LoginComponent,
     HomeComponent,
-    PerfilComponent
+    PerfilComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

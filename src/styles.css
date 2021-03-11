@@ -1,3 +1,40 @@
 .pointer {
     cursor: pointer;
 }
+
+.navbar-style {
+    background-color: black; 
+}
+
+.nav-link, .navbar-brand {
+    color: white;
+}
+
+.nav-link:hover, .navbar-brand:hover, .game-card a:hover {
+    color: lightgray;
+}
+
+body {
+    background-color: #27282E;
+}
+
+hr {
+    border-top: 1px solid white;
+}
+
+.header-title {
+    color: white;
+}
+
+.game-card {
+    box-shadow: 5px 5px 15px -15px white;
+}
+
+.game-card, .game-card a {
+    color: white;
+    background-color: #161618;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: white;
+}
