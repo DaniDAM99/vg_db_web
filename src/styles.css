@@ -30,11 +30,26 @@ hr {
     box-shadow: 5px 5px 15px -15px white;
 }
 
-.game-card, .game-card a {
-    color: white;
+.game-card, .game-card a, .dark-card {
     background-color: #161618;
+    color: white;
 }
 
 h1, h2, h3, h4, h5, h6 {
     color: white;
+}
+
+.input-text, .input-text:focus {
+    background-color: #27282F;
+    color: white;
+}
+
+.input-group-text {
+    background-color: #2c2d35;
+    color: white;
+    font-weight: bold;
+}
+
+.r-border {
+    border-right: 1px solid #444;
 }

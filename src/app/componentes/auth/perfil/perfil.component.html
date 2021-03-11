@@ -1,46 +1,68 @@
-<div class="card mb-3" style="width: 90%; margin: auto;">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Username: {{ usuario.username }}</li>
-      <li class="list-group-item">Email: {{ usuario.email }}</li>
-      <li class="list-group-item">
-        <ng-template [ngIf]='!edit' [ngIfElse]='cancelar'>
-          <input type="button" value="Editar" (click)='edit = !edit' class="btn btn-primary mr-3">
-        </ng-template>
-        <ng-template #cancelar>
-          <input type="button" value="Cancelar" (click)='edit = !edit' class="btn btn-secondary mr-3">
-        </ng-template>
-        <input type="button" value="Eliminar" (click)='edit = false; eliminar()' class="btn btn-danger">
-      </li>
-    </ul>
+<div class="card mb-3 dark-card p-3" style="width: 90%; margin: auto;">
+  <h4>Perfil</h4>
+  <hr>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item dark-card">
+      <div class="row">
+        <div class="col-sm header-title r-border">
+            <p>Nombre de usuario:</p>
+        </div>
+        <div class="col-sm header-title">
+            <p>{{ usuario.username }}</p>
+        </div>
+      </div>
+    </li>
+    <li class="list-group-item dark-card">
+      <div class="row">
+        <div class="col-sm header-title r-border">
+            <p>Email:</p>
+        </div>
+        <div class="col-sm header-title">
+            <p>{{ usuario.email }}</p>
+        </div>
+      </div>
+    </li>
+    <li class="list-group-item dark-card">
+      <ng-template [ngIf]='!edit' [ngIfElse]='cancelar'>
+        <input type="button" value="Editar" (click)='edit = !edit' class="btn btn-primary mr-3">
+      </ng-template>
+      <ng-template #cancelar>
+        <input type="button" value="Cancelar" (click)='edit = !edit' class="btn btn-secondary mr-3">
+      </ng-template>
+      <input type="button" value="Eliminar" (click)='edit = false; eliminar()' class="btn btn-danger">
+    </li>
+  </ul>
 </div>
+
 <ng-template [ngIf]='edit'>
 
-  <div class="border rounded p-3" style="width: 90%; margin: auto;">
-    
-    <div class="alert alert-info" role="alert">
+  <div class="rounded p-3 dark-card" style="width: 90%; margin: auto;">
+    <h4>Editar</h4>
+    <hr>
+    <div class="alert alert-dismissible alert-secondary" role="alert">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
       Si se dejan campos vacios no se editan
     </div>
-
     <form [formGroup]="formUpdate" (submit)="editar()">
       <div class="input-group mb-2">
           <div class="input-group-prepend" style="width: 170px;">
               <span class="input-group-text" style="width: 100%;">Usuario:</span>
           </div>
-          <input type="text" class="form-control" placeholder="Usuario" formControlName="username" >
+          <input type="text" class="form-control input-text" placeholder="Usuario" formControlName="username" >
       </div>
       
       <div class="input-group mb-2">
           <div class="input-group-prepend" style="width: 170px;">
               <span class="input-group-text" style="width: 100%;">Contraseña:</span>
           </div>
-          <input type="text" class="form-control" placeholder="Contraseña" formControlName="password" ><br/>
+          <input type="text" class="form-control input-text" placeholder="Contraseña" formControlName="password" ><br/>
       </div>
 
       <div class="input-group mb-2">
           <div class="input-group-prepend" style="width: 170px;">
               <span class="input-group-text" style="width: 100%;">Repetir contraseña:</span>
           </div>
-          <input type="text" class="form-control" placeholder="Repetir contraseña" formControlName="password2" ><br/>
+          <input type="text" class="form-control input-text" placeholder="Repetir contraseña" formControlName="password2" ><br/>
       </div>
       <input type="submit" class="btn btn-primary" [disabled]='formUpdate.invalid' value="Editar">
     </form>
