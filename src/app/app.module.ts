@@ -11,6 +11,9 @@ import { HomeComponent } from './componentes/home/home.component';
 import { PerfilComponent } from './componentes/auth/perfil/perfil.component';
 import { TokenInterceptorInterceptor } from './auth/token-interceptor.interceptor';
 import { RegistroComponent } from './componentes/auth/registro/registro.component';
+import { DialogComponent } from './componentes/dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,14 +22,18 @@ import { RegistroComponent } from './componentes/auth/registro/registro.componen
     LoginComponent,
     HomeComponent,
     PerfilComponent,
-    RegistroComponent
+    RegistroComponent,
+    DialogComponent
   ],
+  entryComponents: [DialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [{provide:LOCALE_ID, useValue:"es"}, {provide: HTTP_INTERCEPTORS, useClass:TokenInterceptorInterceptor, multi:true}],
   bootstrap: [AppComponent]

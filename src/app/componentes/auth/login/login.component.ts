@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
 
@@ -12,9 +12,11 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb:FormBuilder, private servicioUsuario:UsuarioService, private irHacia:Router) { }
 
+  error = undefined
+
   formLogin = this.fb.group({
-    email:[''],
-    password:['']
+    email:['', Validators.required],
+    password:['', Validators.required]
   })
 
   ngOnInit(): void {
@@ -27,8 +29,10 @@ export class LoginComponent implements OnInit {
         this.servicioUsuario.guardarToken(respuesta.token);
         this.irHacia.navigate(["/perfil"])
       },
-      error => console.log(error)
+      error => {
+        console.log(error)
+        this.error = error.error.error
+      }
     )
   }
-
 }

@@ -1,6 +1,15 @@
 <div class="card p-3 dark-card">
     <h4>Login</h4>
     <hr>
+
+    <div *ngIf='error' class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        {{error}}
+    </div>
+
     <form [formGroup]='formLogin' (submit)="login()">
         <div class="input-group mb-2">
             <div class="input-group-prepend" style="width: 170px;">
@@ -13,9 +22,9 @@
             <div class="input-group-prepend" style="width: 170px;">
                 <span class="input-group-text" style="width: 100%;">Contrseña:</span>
             </div>
-            <input type="text" class="form-control input-text" placeholder="Contraseña" formControlName="password" >
+            <input type="password" class="form-control input-text" placeholder="Contraseña" formControlName="password" >
         </div>
         
-        <input type="submit" class="btn btn-primary"  value="login">
+        <input type="submit" class="btn btn-primary"  [disabled]='formLogin.invalid' value="login">
     </form>
 </div>

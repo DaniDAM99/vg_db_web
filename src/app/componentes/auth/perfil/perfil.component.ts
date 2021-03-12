@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Usuario } from 'src/app/clases/usuario';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../../dialog/dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfil',
@@ -10,7 +13,7 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 })
 export class PerfilComponent implements OnInit {
 
-  constructor(private fb:FormBuilder, private servicioUsuario: UsuarioService) { }
+  constructor(private fb:FormBuilder, private servicioUsuario: UsuarioService, private dialog: MatDialog, private irHacia: Router) { }
 
   usuario: Usuario = {}
 
@@ -54,11 +57,25 @@ export class PerfilComponent implements OnInit {
     }
   }
 
+  eliminarDialog() {
+    let dialogRef = this.dialog.open(DialogComponent)
+    dialogRef.afterClosed().subscribe(
+      respuesta => {
+        console.log(respuesta)
+        if(respuesta == "true") {
+          this.eliminar();
+        }
+      }
+    )
+  }
+
+
   eliminar() {
     this.servicioUsuario.eliminarUsuario().subscribe(
       respuesta => {
         console.log(respuesta)
         this.servicioUsuario.logOut()
+        this.irHacia.navigate(["/login"])
       },
       error => console.log(error)
     )
