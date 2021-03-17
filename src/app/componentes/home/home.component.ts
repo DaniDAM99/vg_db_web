@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Juego } from 'src/app/clases/juego';
 import { JuegoService } from 'src/app/servicios/juego.service';
+import {CdkVirtualScrollViewport} from '@angular/cdk/scrolling'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +11,13 @@ import { JuegoService } from 'src/app/servicios/juego.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private servicioJuegos: JuegoService) { }
+  constructor(private servicioJuegos: JuegoService, private irHacia:Router) { }
 
   juegos: Juego[] = []
 
   ngOnInit(): void {
     this.obtenerJuegos()
   }
-
 
   obtenerJuegos() {
     this.servicioJuegos.obtenerJuegos().subscribe(
@@ -27,4 +28,9 @@ export class HomeComponent implements OnInit {
       error => console.log(error)
     )
   }
+
+  ver_juego(id) {
+    this.irHacia.navigate(["/juego/" + id]);
+  }
+
 }

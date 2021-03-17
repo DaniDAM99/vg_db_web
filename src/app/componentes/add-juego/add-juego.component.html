@@ -1,0 +1,54 @@
+<div class="card p-3 dark-card">
+    <h4>Añadir juego</h4>
+    <hr>
+
+    
+
+    <div *ngIf='error' class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        {{error}}
+    </div>
+
+    <div *ngIf='mensaje' class="alert alert-success alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        {{mensaje}}
+    </div>
+
+    <form [formGroup]="formInsertar" (submit)="insertarJuego()">
+        <div class="input-group mb-2">
+            <div class="input-group-prepend" style="width: 170px;">
+                <span class="input-group-text" style="width: 100%;">Nombre:</span>
+            </div>
+            <input type="text" class="form-control input-text" placeholder="Nombre" formControlName="nombre" >
+        </div>
+        
+        <div class="input-group mb-2">
+            <div class="input-group-prepend" style="width: 170px;">
+                <span class="input-group-text" style="width: 100%;">Fecha de lanzamiento</span>
+            </div>
+            <input type="date" class="form-control input-text" placeholder="" formControlName="fecha_lanzamiento" ><br/>
+        </div>
+
+        <div class="input-group mb-2">
+            <div class="input-group-prepend" style="width: 170px;">
+                <span class="input-group-text" style="width: 100%;">Género(s):</span>
+            </div>
+            <input type="text" class="form-control input-text" placeholder="Género" formControlName="genero" ><br/>
+        </div>
+
+        <div class="input-group mb-2">
+            <div class="input-group-prepend" style="width: 170px;">
+                <span class="input-group-text" style="width: 100%;">Plataforma(s)</span>
+            </div>
+            <input type="text" class="form-control input-text" placeholder="Plataforma(s)" formControlName="plataforma" ><br/>
+        </div>
+
+        <input type="submit" class="btn btn-primary" [disabled]='formInsertar.invalid' value="Registrar">
+    </form>
+</div>

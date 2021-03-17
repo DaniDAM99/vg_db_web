@@ -27,7 +27,7 @@ export class TokenInterceptorInterceptor implements HttpInterceptor {
     return next.handle(peticion).pipe(
       catchError((err: HttpErrorResponse)=>{
         if (err.status===401){
-          //this.servicioUsuario.logOut()
+          this.servicioUsuario.logOut()
           this.irHacia.navigate(['/login'])
         }
         return throwError(err)

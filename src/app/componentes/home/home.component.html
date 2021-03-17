@@ -18,7 +18,7 @@
     <div class="card mt-3 py-3 px-4 game-card" *ngFor='let juego of juegos' style="height: 5rem;">
         <div class="row">
             <div class="col-sm">
-                <p><a href="">{{ juego.nombre }}</a></p>
+                <p><a class="pointer" (click)="ver_juego(juego.id)">{{ juego.nombre }}</a></p>
             </div>
             <div class="col-sm">
                 <p>{{ juego.fecha_lanzamiento }}</p>

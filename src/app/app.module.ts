@@ -14,6 +14,8 @@ import { RegistroComponent } from './componentes/auth/registro/registro.componen
 import { DialogComponent } from './componentes/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { JuegoComponent } from './componentes/juego/juego.component';
+import { AddJuegoComponent } from './componentes/add-juego/add-juego.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     PerfilComponent,
     RegistroComponent,
-    DialogComponent
+    DialogComponent,
+    JuegoComponent,
+    AddJuegoComponent
   ],
   entryComponents: [DialogComponent],
   imports: [
