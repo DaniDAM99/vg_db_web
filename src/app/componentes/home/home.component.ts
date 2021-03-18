@@ -14,6 +14,9 @@ export class HomeComponent implements OnInit {
   constructor(private servicioJuegos: JuegoService, private irHacia:Router) { }
 
   juegos: Juego[] = []
+  juegosMostrar: Juego[] = []
+  busqueda: string
+  temporizador: any = null
 
   ngOnInit(): void {
     this.obtenerJuegos()
@@ -24,6 +27,7 @@ export class HomeComponent implements OnInit {
       respuesta => {
         console.log(respuesta)
         this.juegos = respuesta
+        this.juegosMostrar = respuesta
       },
       error => console.log(error)
     )
@@ -31,6 +35,20 @@ export class HomeComponent implements OnInit {
 
   ver_juego(id) {
     this.irHacia.navigate(["/juego/" + id]);
+  }
+
+  buscarConRetraso() {
+    if(this.temporizador == null) {
+      this.temporizador = setTimeout(() => {
+        this.buscarJuego()
+        this.temporizador=null
+      }, 1500)
+    }
+  }
+
+  buscarJuego() {
+    this.juegosMostrar = this.juegos.filter(juego => juego.nombre.includes(this.busqueda))
+    console.log(this.juegosMostrar)
   }
 
 }

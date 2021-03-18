@@ -15,7 +15,10 @@
         </div>
     </div>
     <hr>
-    <div class="card mt-3 py-3 px-4 game-card" *ngFor='let juego of juegos' style="height: 5rem;">
+    <div class="input-group dark-card">
+        <input (input)="buscarConRetraso()" style="display: inline;" class="form-control m-3 input-text" type="text" [(ngModel)]='busqueda' placeholder="Búsqueda">
+    </div>
+    <div class="card mt-3 py-3 px-4 game-card" *ngFor='let juego of juegosMostrar' style="height: 5rem;">
         <div class="row">
             <div class="col-sm">
                 <p><a class="pointer" (click)="ver_juego(juego.id)">{{ juego.nombre }}</a></p>
