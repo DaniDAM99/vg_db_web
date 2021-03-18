@@ -1,9 +1,6 @@
 <div class="card p-3 dark-card">
     <h4>Añadir juego</h4>
     <hr>
-
-    
-
     <div *ngIf='error' class="alert alert-danger alert-dismissible fade show" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -49,6 +46,6 @@
             <input type="text" class="form-control input-text" placeholder="Plataforma(s)" formControlName="plataforma" ><br/>
         </div>
 
-        <input type="submit" class="btn btn-primary" [disabled]='formInsertar.invalid' value="Registrar">
+        <input type="submit" class="btn btn-primary" [disabled]='formInsertar.invalid' value="Añadir juego">
     </form>
 </div>

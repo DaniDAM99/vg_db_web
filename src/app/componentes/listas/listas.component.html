@@ -1,0 +1,48 @@
+<h3>Listas</h3>
+<div class="">
+    <hr>
+    
+    <div *ngIf='error' class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        {{error}}
+    </div>
+
+    <div *ngIf='mensaje' class="alert alert-success alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+        </button>
+        {{mensaje}}
+    </div>
+
+
+    <input type="button" class="card mt-3 py-3 px-4 game-card btn btn-secondary" (click)='mostrarForm = !mostrarForm' style="width: 100%;" value="Crear lista">
+
+    <div *ngIf='mostrarForm' class="card p-3 dark-card mt-3">
+        <form [formGroup]="formInsertar" (submit)="insertarLista()">
+            <div class="input-group mb-2">
+                <div class="input-group-prepend" style="width: 170px;">
+                    <span class="input-group-text" style="width: 100%;">Título:</span>
+                </div>
+                <input type="text" class="form-control input-text" placeholder="Título" formControlName="titulo" >
+            </div>
+
+            <input type="submit" class="btn btn-primary" [disabled]='formInsertar.invalid' value="Crear lista">
+        </form>
+    </div>
+
+    <div class="card mt-3 py-3 px-4 game-card" *ngFor='let lista of listas' style="height: 5rem;">
+        <div class="row">
+            <div class="col-sm">
+                <p><a class="pointer" (click)='ver_lista(lista[0].id)'>{{ lista[0].titulo }}</a></p>
+            </div>
+            <div class="col-sm">
+                <input type="button" class="btn btn-danger mr-2" (click)="eliminarLista(lista[0].id)" value="Borrar">
+                <input type="button" class="btn btn-secondary" value="Editar">
+            </div>
+        </div>
+    </div>
+</div>

@@ -16,6 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JuegoComponent } from './componentes/juego/juego.component';
 import { AddJuegoComponent } from './componentes/add-juego/add-juego.component';
+import { ListasComponent } from './componentes/listas/listas.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AddJuegoComponent } from './componentes/add-juego/add-juego.component';
     RegistroComponent,
     DialogComponent,
     JuegoComponent,
-    AddJuegoComponent
+    AddJuegoComponent,
+    ListasComponent
   ],
   entryComponents: [DialogComponent],
   imports: [
