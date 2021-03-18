@@ -4,8 +4,31 @@
     </div>
     <hr>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item dark-card">{{ juego.fecha_lanzamiento }}</li>
-      <li class="list-group-item dark-card">{{ juego.genero }}</li>
-      <li class="list-group-item dark-card">{{ juego.plataforma }}</li>
+      <li class="list-group-item dark-card">
+        <div class="d-flex flex-row">
+          <div style="width: 25%;">Fecha de lanzamiento:</div>
+          <div>{{ juego.fecha_lanzamiento }}</div>
+        </div>
+      </li>
+      <li class="list-group-item dark-card">
+        <div class="d-flex flex-row">
+          <div style="width: 25%;">Género(s):</div>
+          <div>{{ juego.genero }}</div>
+        </div>
+      </li>
+      <li class="list-group-item dark-card">
+        <div class="d-flex flex-row">
+          <div style="width: 25%;">Plataforma(s):</div>
+          <div>{{ juego.plataforma }}</div>
+        </div>
+      </li>
+      <li class="list-group-item dark-card">
+        <div class="d-flex flex-row">
+          <select class="form-control input-text mr-4">
+            <option *ngFor='let lista of listas'> {{ lista[0].titulo }} </option>
+          </select>
+          <input type="button" class="btn btn-secondary" value="Añadir a la lista">
+        </div>
+      </li>
     </ul>
 </div>
