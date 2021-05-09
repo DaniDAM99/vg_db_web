@@ -5,6 +5,8 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from '../../dialog/dialog.component';
 import { Router } from '@angular/router';
+import { PlatformLocation } from '@angular/common';
+import { Plataforma } from 'src/app/clases/plataforma';
 
 @Component({
   selector: 'app-perfil',
@@ -16,7 +18,7 @@ export class PerfilComponent implements OnInit {
   constructor(private fb:FormBuilder, private servicioUsuario: UsuarioService, private dialog: MatDialog, private irHacia: Router) { }
 
   usuario: Usuario = {}
-
+  plataformas: Plataforma = {}
   edit = false;
 
   
@@ -35,6 +37,7 @@ export class PerfilComponent implements OnInit {
       respuesta => {
         console.log(respuesta)
         this.usuario = respuesta
+        this.plataformas = this.usuario.plataformas;
       },
       error => console.log(error)
     )

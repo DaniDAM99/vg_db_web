@@ -24,4 +24,12 @@ export class JuegoService {
   insertarJuego(juego: Juego): Observable<any> {
     return this.http.post(url, juego)
   }
+
+  anadirALista(idJuego: number, idLista: number): Observable<any> {
+    return this.http.put(url + "/add/" + idJuego + "/" + idLista, null);
+  }
+
+  eliminarDeLista(idJueog: number, idLista:number) {
+    return this.http.delete(url + "/borrar/" + idJueog + "/" + idLista);
+  }
 }

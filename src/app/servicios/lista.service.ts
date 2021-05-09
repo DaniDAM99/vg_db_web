@@ -24,4 +24,8 @@ export class ListaService {
   insertarLista(lista: Lista): Observable<any> {
     return this.http.post(url, lista)
   }
+
+  obtenerLista(id: number): Observable<any> {
+    return this.http.get(url + "/" + id);
+  }
 }

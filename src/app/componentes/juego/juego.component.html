@@ -1,4 +1,21 @@
 <div class="card dark-card" style="width: 80%; margin: auto;">
+
+  <div *ngIf='error' class="alert alert-danger alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span>
+    </button>
+    {{error}}
+  </div>
+
+  <div *ngIf='mensaje' class="alert alert-success alert-dismissible fade show" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+      </button>
+      {{mensaje}}
+  </div>
+
     <div class="card-header dark-card">
         <h1 style="display: inline;">{{ juego.nombre }}</h1>
     </div>
@@ -24,10 +41,10 @@
       </li>
       <li class="list-group-item dark-card">
         <div class="d-flex flex-row">
-          <select class="form-control input-text mr-4">
-            <option *ngFor='let lista of listas'> {{ lista[0].titulo }} </option>
+          <select class="form-control input-text mr-4" [(ngModel)]="idLista">
+            <option *ngFor='let lista of listas; index as i' [selected]='i>=0 ? "selected" : ""' selected value="{{ lista[0].id}}" > {{ lista[0].titulo}} </option>
           </select>
-          <input type="button" class="btn btn-secondary" value="Añadir a la lista">
+          <input type="button" class="btn btn-secondary" value="Añadir a la lista" (click)="anadirALista()">
         </div>
       </li>
     </ul>

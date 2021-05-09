@@ -1,0 +1,20 @@
+
+<div>
+    <h1>{{ lista.titulo.toUpperCase( ) }}</h1>
+</div>
+<div class="card mt-3 py-3 px-4 game-card" *ngFor='let juego of juegos' style="height: 5rem;">
+    <div class="row">
+        <div class="col-sm">
+            <p><a class="pointer" (click)="ver_juego(juego.id)">{{ juego.nombre }}</a></p>
+        </div>
+        <div class="col-sm">
+            <p>{{ juego.fecha_lanzamiento }}</p>
+        </div>
+        <div class="col-sm">
+            <p>{{ juego.genero }}</p>
+        </div>
+        <div class="col-sm">
+            <button class="btn btn-danger" (click)="eliminarDeLista(juego.id)">Eliminar</button>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Juego } from 'src/app/clases/juego';
 import { Lista } from 'src/app/clases/lista';
 import { JuegoService } from 'src/app/servicios/juego.service';
@@ -12,11 +12,14 @@ import { ListaService } from 'src/app/servicios/lista.service';
 })
 export class JuegoComponent implements OnInit {
 
-  constructor(private rutaActiva: ActivatedRoute, private servicioJuego: JuegoService, private servicioListas: ListaService) { }
+  constructor(private rutaActiva: ActivatedRoute, private servicioJuego: JuegoService, private servicioListas: ListaService, private irHacia:Router) { }
 
   id: number
+  idLista: number
   juego: Juego = {}
   listas: Lista[] = []
+  error = undefined
+  mensaje = undefined
 
   ngOnInit(): void {
     this.id = parseInt(this.rutaActiva.snapshot.paramMap.get("id"));
@@ -44,7 +47,24 @@ export class JuegoComponent implements OnInit {
         console.log(respuesta)
         this.listas = respuesta
       },
-      error => console.log(error)
+      error => {
+        console.log(error)
+      }
     )
+  }
+
+  anadirALista() {
+    if(this.idLista != null) {
+      this.servicioJuego.anadirALista(this.id, this.idLista).subscribe(
+        respuesta => {
+          console.log(respuesta)
+          this.mensaje = respuesta.respuesta
+        },
+        error => {
+          console.log(error)
+          this.error = error.error.error
+        }
+      )
+    }
   }
 }

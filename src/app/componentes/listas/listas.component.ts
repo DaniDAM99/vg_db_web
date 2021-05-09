@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Lista } from 'src/app/clases/lista';
 import { ListaService } from 'src/app/servicios/lista.service';
 
@@ -10,7 +11,7 @@ import { ListaService } from 'src/app/servicios/lista.service';
 })
 export class ListasComponent implements OnInit {
 
-  constructor(private servicioLista: ListaService, private fb:FormBuilder) { }
+  constructor(private servicioLista: ListaService, private fb:FormBuilder, private irHacia:Router) { }
   listas: Lista[] = []
 
   ngOnInit(): void {
@@ -37,7 +38,7 @@ export class ListasComponent implements OnInit {
   }
 
   ver_lista(id) {
-
+    this.irHacia.navigate(["/lista/" + id]);
   }
 
   eliminarLista(id) {

@@ -1,33 +1,37 @@
 <h1>Juegos</h1>
 <div class="">
-    <hr>
-    <div class="px-4" style="height: 1rem; margin-top: -1%;">
-        <div class="row">
-            <div class="col-sm header-title">
-                <p>Nombre del juego</p>
-            </div>
-            <div class="col-sm header-title">
-                <p>Fecha de lanzamiento</p>
-            </div>
-            <div class="col-sm header-title">
-                <p>Género(s)</p>
+    <hr class="game-header">
+    <div class="game-header">
+        <div class="pb-4" style="height: 1vh;">
+            <div class="row">
+                <div class="col-sm header-title">
+                    <p>Nombre del juego</p>
+                </div>
+                <div class="col-sm header-title">
+                    <p>Fecha de lanzamiento</p>
+                </div>
+                <div class="col-sm header-title">
+                    <p>Género(s)</p>
+                </div>
             </div>
         </div>
     </div>
-    <hr>
+    <hr class="game-header">
     <div class="input-group dark-card">
         <input (input)="buscarConRetraso()" style="display: inline;" class="form-control m-3 input-text" type="text" [(ngModel)]='busqueda' placeholder="Búsqueda">
     </div>
-    <div class="card mt-3 py-3 px-4 game-card" *ngFor='let juego of juegosMostrar' style="height: 5rem;">
-        <div class="row">
-            <div class="col-sm">
-                <p><a class="pointer" (click)="ver_juego(juego.id)">{{ juego.nombre }}</a></p>
-            </div>
-            <div class="col-sm">
-                <p>{{ juego.fecha_lanzamiento }}</p>
-            </div>
-            <div class="col-sm">
-                <p>{{ juego.genero }}</p>
+    <div class="container game-container">
+        <div class="card mt-3 py-3 px-4 game-card" *ngFor='let juego of juegosMostrar'>
+            <div class="row">
+                <div class="col-sm">
+                    <p><a class="pointer" (click)="ver_juego(juego.id)">{{ juego.nombre }}</a></p>
+                </div>
+                <div class="col-sm">
+                    <p>{{ juego.fecha_lanzamiento }}</p>
+                </div>
+                <div class="col-sm">
+                    <p>{{ juego.genero }}</p>
+                </div>
             </div>
         </div>
     </div>

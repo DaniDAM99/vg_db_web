@@ -17,6 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JuegoComponent } from './componentes/juego/juego.component';
 import { AddJuegoComponent } from './componentes/add-juego/add-juego.component';
 import { ListasComponent } from './componentes/listas/listas.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { VerListaComponent } from './componentes/ver-lista/ver-lista.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { ListasComponent } from './componentes/listas/listas.component';
     DialogComponent,
     JuegoComponent,
     AddJuegoComponent,
-    ListasComponent
+    ListasComponent,
+    VerListaComponent
   ],
   entryComponents: [DialogComponent],
   imports: [
@@ -39,7 +42,8 @@ import { ListasComponent } from './componentes/listas/listas.component';
     ReactiveFormsModule,
     HttpClientModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxPaginationModule
   ],
   providers: [{provide:LOCALE_ID, useValue:"es"}, {provide: HTTP_INTERCEPTORS, useClass:TokenInterceptorInterceptor, multi:true}],
   bootstrap: [AppComponent]

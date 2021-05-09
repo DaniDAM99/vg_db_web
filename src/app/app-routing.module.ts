@@ -7,6 +7,7 @@ import { RegistroComponent } from './componentes/auth/registro/registro.componen
 import { HomeComponent } from './componentes/home/home.component';
 import { JuegoComponent } from './componentes/juego/juego.component';
 import { ListasComponent } from './componentes/listas/listas.component';
+import { VerListaComponent } from './componentes/ver-lista/ver-lista.component';
 const routes: Routes = [
   {path: "", component:HomeComponent},
   {path: "login", component:LoginComponent},
@@ -14,7 +15,8 @@ const routes: Routes = [
   {path: "registrar", component:RegistroComponent},
   {path: "juego/:id", component:JuegoComponent},
   {path: "add_juego", component:AddJuegoComponent},
-  {path: "listas", component:ListasComponent}
+  {path: "listas", component:ListasComponent},
+  {path: "lista/:id", component:VerListaComponent}
 ];
 
 @NgModule({

@@ -11,11 +11,42 @@
     background-color: rgba(0,0,0,0.8);
 }
 
-.modal-div {
-    margin: 200px auto;
-    width: 50%;
-    z-index: 2;
+@media screen and (max-width: 580px) {
+    .game-card {
+        height: 8rem;
+    }
+    .game-header {
+        display: none;
+    }
+
 }
+
+@media screen and (max-width: 763px) {
+}
+
+@media screen and (min-width: 581px) {
+
+    .modal-div {
+        margin: 200px auto;
+        width: 50%;
+        z-index: 2;
+    }
+    
+    .game-container {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        height: 60vh;
+        overflow: auto;
+    }
+    .game-card {
+        height: 5rem;
+    }
+    
+}
+    
+html, body { height: 100%; }
+
+body { margin: 0;}
 
 .pointer {
     cursor: pointer;
@@ -75,10 +106,6 @@ h1, h2, h3, h4, h5, h6 {
     border-right: 1px solid #444;
 }
 
-html, body { height: 100%; }
-
-body { margin: 0;}
-
 * {
-    font-family: 'Bree Serif', serif;
+    font-family: 'Bree Serif', 'serif';
 }

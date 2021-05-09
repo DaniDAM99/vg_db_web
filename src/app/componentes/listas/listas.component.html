@@ -18,8 +18,7 @@
         {{mensaje}}
     </div>
 
-
-    <input type="button" class="card mt-3 py-3 px-4 game-card btn btn-secondary" (click)='mostrarForm = !mostrarForm' style="width: 100%;" value="Crear lista">
+    <input type="button" class="btn btn-primary mt-3 py-3 px-4 " (click)='mostrarForm = !mostrarForm' style="width: 100%;" value="Crear lista">
 
     <div *ngIf='mostrarForm' class="card p-3 dark-card mt-3">
         <form [formGroup]="formInsertar" (submit)="insertarLista()">
