@@ -1,42 +1,145 @@
-<div class="card mb-3 dark-card p-3" style="width: 90%; margin: auto;">
-  <h4>Perfil</h4>
-  <hr>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item dark-card">
-      <div class="row">
-        <div class="col-sm header-title r-border">
-            <p>Nombre de usuario:</p>
-        </div>
-        <div class="col-sm header-title">
-            <p>{{ usuario.username }}</p>
+
+<!-- Acordeon -->
+<div id="accordion">
+  <div class="card">
+    <div class="card-header dark-card" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn" data-toggle="collapse" (click)="edit = false; update_plataformas = false" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="width: 100%;">
+        Perfil
+        <i class="fas fa-angle-down"></i>
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse dark-card" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card mb-3 dark-card p-3" style="width: 90%; margin: auto;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item dark-card">
+            <div class="row">
+              <div class="col-sm header-title r-border">
+                  <p>Nombre de usuario:</p>
+              </div>
+              <div class="col-sm header-title">
+                  <p>{{ usuario.username }}</p>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item dark-card">
+            <div class="row">
+              <div class="col-sm header-title r-border">
+                  <p>Email:</p>
+              </div>
+              <div class="col-sm header-title">
+                  <p>{{ usuario.email }}</p>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item dark-card">
+            <ng-template [ngIf]='!edit' [ngIfElse]='cancelar'>
+              <input type="button" value="Editar" (click)='edit = !edit' class="btn btn-primary mr-3">
+            </ng-template>
+            <ng-template #cancelar>
+              <input type="button" value="Cancelar" (click)='edit = !edit' class="btn btn-secondary mr-3">
+            </ng-template>
+            <input type="button" value="Eliminar" (click)='edit = false; eliminarDialog()' class="btn btn-danger">
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header dark-card" id="headingTwo">
+        <h5 class="mb-0">
+          <button class="btn" data-toggle="collapse" (click)="update_plataformas = false; edit = false" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="width: 100%;">
+            Plataformas
+            <i class="fas fa-angle-down"></i>
+          </button>
+        </h5>
+      </div>
+      <div id="collapseTwo" class="collapse dark-card" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class="card my-3 dark-card p-3" style="width: 90%; margin: auto;">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item dark-card">
+              <div class="row">
+                <div class="col-sm header-title r-border">
+                    <p>Steam:</p>
+                </div>
+                <div class="col-sm header-title">
+                    <p>{{ plataformas.steam }}</p>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item dark-card">
+              <div class="row">
+                <div class="col-sm header-title r-border">
+                    <p>Epic games:</p>
+                </div>
+                <div class="col-sm header-title">
+                  <p>{{ plataformas.epic_games }}</p>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item dark-card">
+              <div class="row">
+                <div class="col-sm header-title r-border">
+                    <p>Origin:</p>
+                </div>
+                <div class="col-sm header-title">
+                  <p>{{ plataformas.origin }}</p>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item dark-card">
+              <div class="row">
+                <div class="col-sm header-title r-border">
+                    <p>Nintendo:</p>
+                </div>
+                <div class="col-sm header-title">
+                  <p>{{ plataformas.nintendo }}</p>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item dark-card">
+              <div class="row">
+                <div class="col-sm header-title r-border">
+                    <p>Ubisoft:</p>
+                </div>
+                <div class="col-sm header-title">
+                  <p>{{ plataformas.ubisoft }}</p>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item dark-card">
+              <div class="row">
+                <div class="col-sm header-title r-border">
+                    <p>Battle.net:</p>
+                </div>
+                <div class="col-sm header-title">
+                  <p>{{ plataformas.battlenet }}</p>
+                </div>
+              </div>
+            </li>
+            
+            <li class="list-group-item dark-card">
+              <ng-template [ngIf]='!update_plataformas' [ngIfElse]='cancel_update'>
+                <input type="button" value="Editar" (click)='update_plataformas = !update_plataformas' class="btn btn-primary mr-3">
+              </ng-template>
+              <ng-template #cancel_update>
+                <input type="button" value="Cancelar" (click)='update_plataformas = !update_plataformas' class="btn btn-secondary mr-3">
+              </ng-template>
+            </li>
+          </ul>
         </div>
       </div>
-    </li>
-    <li class="list-group-item dark-card">
-      <div class="row">
-        <div class="col-sm header-title r-border">
-            <p>Email:</p>
-        </div>
-        <div class="col-sm header-title">
-            <p>{{ usuario.email }}</p>
-        </div>
-      </div>
-    </li>
-    <li class="list-group-item dark-card">
-      <ng-template [ngIf]='!edit' [ngIfElse]='cancelar'>
-        <input type="button" value="Editar" (click)='edit = !edit' class="btn btn-primary mr-3">
-      </ng-template>
-      <ng-template #cancelar>
-        <input type="button" value="Cancelar" (click)='edit = !edit' class="btn btn-secondary mr-3">
-      </ng-template>
-      <input type="button" value="Eliminar" (click)='edit = false; eliminarDialog()' class="btn btn-danger">
-    </li>
-  </ul>
+    </div>
+
+  </div>
 </div>
+<!-- Fin Acordeon -->
 
+<!-- Form Edit -->
 <ng-template [ngIf]='edit'>
-
-  <div class="rounded p-3 dark-card" style="width: 90%; margin: auto;">
+  <div class="rounded p-3 dark-card" style="margin: auto;">
     <h4>Editar</h4>
     <hr>
     <div class="alert alert-dismissible alert-secondary" role="alert">
@@ -68,70 +171,54 @@
     </form>
   </div>
 </ng-template>
+<!-- Fin Form Edit -->
 
-<div class="card my-3 dark-card p-3" style="width: 90%; margin: auto;">
-  <h4>Plataformas</h4>
-  <hr>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item dark-card">
-      <div class="row">
-        <div class="col-sm header-title r-border">
-            <p>Steam:</p>
-        </div>
-        <div class="col-sm header-title">
-            <p>{{ plataformas.steam }}</p>
-        </div>
+<!-- Form Plataformas -->
+<ng-template [ngIf]='update_plataformas'>
+  <div class="rounded p-3 dark-card" style="margin: auto;">
+    <h4>Plataformas</h4>
+    <hr>
+    <form [formGroup]="formPlataformas" (submit)="updatePlataformas()">
+      <div class="input-group mb-2">
+          <div class="input-group-prepend" style="width: 170px;">
+              <span class="input-group-text" style="width: 100%;">Steam:</span>
+          </div>
+          <input type="text" class="form-control input-text" placeholder="" formControlName="steam" >
       </div>
-    </li>
-    <li class="list-group-item dark-card">
-      <div class="row">
-        <div class="col-sm header-title r-border">
-            <p>Epic games:</p>
-        </div>
-        <div class="col-sm header-title">
-          <p>{{ plataformas.epic_games }}</p>
-        </div>
+      
+      <div class="input-group mb-2">
+          <div class="input-group-prepend" style="width: 170px;">
+              <span class="input-group-text" style="width: 100%;">Origin:</span>
+          </div>
+          <input type="text" class="form-control input-text" formControlName="origin" ><br/>
       </div>
-    </li>
-    <li class="list-group-item dark-card">
-      <div class="row">
-        <div class="col-sm header-title r-border">
-            <p>Origin:</p>
-        </div>
-        <div class="col-sm header-title">
-          <p>{{ plataformas.origin }}</p>
-        </div>
+
+      <div class="input-group mb-2">
+          <div class="input-group-prepend" style="width: 170px;">
+              <span class="input-group-text" style="width: 100%;">Epic games:</span>
+          </div>
+          <input type="text" class="form-control input-text" formControlName="epic_games" ><br/>
       </div>
-    </li>
-    <li class="list-group-item dark-card">
-      <div class="row">
-        <div class="col-sm header-title r-border">
-            <p>Nintendo:</p>
-        </div>
-        <div class="col-sm header-title">
-          <p>{{ plataformas.nintendo }}</p>
-        </div>
+      <div class="input-group mb-2">
+          <div class="input-group-prepend" style="width: 170px;">
+              <span class="input-group-text" style="width: 100%;">Nintendo:</span>
+          </div>
+          <input type="text" class="form-control input-text" formControlName="nintendo" ><br/>
       </div>
-    </li>
-    <li class="list-group-item dark-card">
-      <div class="row">
-        <div class="col-sm header-title r-border">
-            <p>Ubisoft:</p>
-        </div>
-        <div class="col-sm header-title">
-          <p>{{ plataformas.ubisoft }}</p>
-        </div>
+      <div class="input-group mb-2">
+          <div class="input-group-prepend" style="width: 170px;">
+              <span class="input-group-text" style="width: 100%;">Ubisoft:</span>
+          </div>
+          <input type="text" class="form-control input-text" formControlName="ubisoft" ><br/>
       </div>
-    </li>
-    <li class="list-group-item dark-card">
-      <div class="row">
-        <div class="col-sm header-title r-border">
-            <p>Battle.net:</p>
-        </div>
-        <div class="col-sm header-title">
-          <p>{{ plataformas.battlenet }}</p>
-        </div>
+      <div class="input-group mb-2">
+          <div class="input-group-prepend" style="width: 170px;">
+              <span class="input-group-text" style="width: 100%;">Battle.net:</span>
+          </div>
+          <input type="text" class="form-control input-text" formControlName="battlenet" ><br/>
       </div>
-    </li>
-  </ul>
-</div>
+      <input type="submit" class="btn btn-primary" value="Editar">
+    </form>
+  </div>
+</ng-template>
+<!-- Fin Form Plataformas -->

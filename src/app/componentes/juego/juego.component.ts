@@ -15,7 +15,7 @@ export class JuegoComponent implements OnInit {
   constructor(private rutaActiva: ActivatedRoute, private servicioJuego: JuegoService, private servicioListas: ListaService, private irHacia:Router) { }
 
   id: number
-  idLista: number
+  idLista: number = 0
   juego: Juego = {}
   listas: Lista[] = []
   error = undefined

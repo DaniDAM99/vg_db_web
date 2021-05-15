@@ -19,13 +19,23 @@ export class PerfilComponent implements OnInit {
 
   usuario: Usuario = {}
   plataformas: Plataforma = {}
-  edit = false;
+  edit = false
+  update_plataformas = false
 
   
   formUpdate = this.fb.group({
     username:['', ],
     password:['', Validators.minLength(4)],
     password2:['', Validators.minLength(4)],
+  })
+
+  formPlataformas = this.fb.group({
+    steam:[''],
+    epic_games:[''],
+    origin:[''],
+    nintendo:[''],
+    ubisoft:[''],
+    battlenet:[''],
   })
   
   ngOnInit(): void {
@@ -58,6 +68,19 @@ export class PerfilComponent implements OnInit {
         error => console.log(error)
       )
     }
+  }
+
+  updatePlataformas() {
+    this.servicioUsuario.updatePlataformas(this.formPlataformas.value).subscribe(
+      respuesta => {
+        console.log(respuesta)
+        this.getUsuario();
+        this.update_plataformas = false
+      },
+      error => {
+        console.log(error)
+      }
+    )
   }
 
   eliminarDialog() {

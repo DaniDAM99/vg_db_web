@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { accesoUsuario, Usuario } from '../clases/usuario';
 import { Observable } from 'rxjs';
+import { Plataforma } from '../clases/plataforma';
 
 const url = 'http://127.0.0.1:8000/usuarios'
 
@@ -30,6 +31,10 @@ export class UsuarioService {
 
   eliminarUsuario(): Observable<any> {
     return this.http.delete(url)
+  }
+
+  updatePlataformas(plataformas: Plataforma): Observable<any> {
+    return this.http.put(url + "/plataformas", plataformas);
   }
 
   guardarToken(token: string) {
