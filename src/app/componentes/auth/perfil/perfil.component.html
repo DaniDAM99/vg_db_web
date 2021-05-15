@@ -2,9 +2,10 @@
 <!-- Acordeon -->
 <div id="accordion">
   <div class="card">
+    <!-- Perfil -->
     <div class="card-header dark-card" id="headingOne">
       <h5 class="mb-0">
-        <button class="btn" data-toggle="collapse" (click)="edit = false; update_plataformas = false" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="width: 100%;">
+        <button class="btn btn_accordion" data-toggle="collapse" (click)="edit = false; update_plataformas = false" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="width: 100%;">
         Perfil
         <i class="fas fa-angle-down"></i>
         </button>
@@ -46,17 +47,19 @@
         </ul>
       </div>
     </div>
+    <!-- Fin Perfil -->
 
-    <div class="card">
-      <div class="card-header dark-card" id="headingTwo">
+    <!-- Plataformas -->
+    <div class="card-header dark-card" id="headingTwo">
         <h5 class="mb-0">
-          <button class="btn" data-toggle="collapse" (click)="update_plataformas = false; edit = false" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="width: 100%;">
+          <button class="btn btn_accordion" data-toggle="collapse" (click)="update_plataformas = false; edit = false" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="width: 100%;">
             Plataformas
             <i class="fas fa-angle-down"></i>
           </button>
         </h5>
-      </div>
-      <div id="collapseTwo" class="collapse dark-card" aria-labelledby="headingTwo" data-parent="#accordion">
+    </div>
+
+    <div id="collapseTwo" class="collapse dark-card" aria-labelledby="headingTwo" data-parent="#accordion">
         <div class="card my-3 dark-card p-3" style="width: 90%; margin: auto;">
           <ul class="list-group list-group-flush">
             <li class="list-group-item dark-card">
@@ -130,9 +133,8 @@
             </li>
           </ul>
         </div>
-      </div>
     </div>
-
+    <!-- Fin Plataformas -->
   </div>
 </div>
 <!-- Fin Acordeon -->

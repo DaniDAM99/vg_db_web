@@ -106,6 +106,21 @@ h1, h2, h3, h4, h5, h6 {
     border-right: 1px solid #444;
 }
 
+a:hover {
+    color: #038e00 !important;
+}
+
+.btn_accordion:hover {
+    color: #038e00 !important;
+}
+.alert-success {
+    background-color: #026900;
+}
+
 * {
     font-family: 'Bree Serif', 'serif';
+}
+
+.dropdown-item:hover {
+    background-color: transparent !important;
 }

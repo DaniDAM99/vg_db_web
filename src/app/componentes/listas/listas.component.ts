@@ -61,6 +61,7 @@ export class ListasComponent implements OnInit {
       respuesta => { 
         console.log(respuesta)
         this.mensaje = respuesta.respuesta
+        this.mostrarForm = false
         this.getListas()
       },
       error => {
