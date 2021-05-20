@@ -3,7 +3,7 @@
 <div id="accordion">
   <div class="card">
     <!-- Perfil -->
-    <div class="card-header dark-card" id="headingOne">
+    <div class="card-header accordion-header" id="headingOne">
       <h5 class="mb-0">
         <button class="btn btn_accordion" data-toggle="collapse" (click)="edit = false; update_plataformas = false" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="width: 100%;">
         Perfil
@@ -12,7 +12,7 @@
       </h5>
     </div>
 
-    <div id="collapseOne" class="collapse dark-card" aria-labelledby="headingOne" data-parent="#accordion">
+    <div id="collapseOne" class="collapse show dark-card" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card mb-3 dark-card p-3" style="width: 90%; margin: auto;">
         <ul class="list-group list-group-flush">
           <li class="list-group-item dark-card">
@@ -36,6 +36,16 @@
             </div>
           </li>
           <li class="list-group-item dark-card">
+            <div class="row">
+              <div class="col-sm header-title r-border">
+                  <p>Provincia:</p>
+              </div>
+              <div class="col-sm header-title">
+                  <p>{{ usuario.provincia }}</p>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item dark-card">
             <ng-template [ngIf]='!edit' [ngIfElse]='cancelar'>
               <input type="button" value="Editar" (click)='edit = !edit' class="btn btn-primary mr-3">
             </ng-template>
@@ -50,7 +60,7 @@
     <!-- Fin Perfil -->
 
     <!-- Plataformas -->
-    <div class="card-header dark-card" id="headingTwo">
+    <div class="card-header accordion-header" id="headingTwo">
         <h5 class="mb-0">
           <button class="btn btn_accordion" data-toggle="collapse" (click)="update_plataformas = false; edit = false" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="width: 100%;">
             Plataformas

@@ -30,6 +30,16 @@
             <input type="text" class="form-control input-text" placeholder="Email" formControlName="email" ><br/>
         </div>
 
+        <div class="input-group mb-2">
+            <div class="input-group-prepend" style="width: 170px;">
+                <span class="input-group-text" style="width: 100%;">Provincia:</span>
+            </div>
+            <select class="form-control input-text" formControlName="provincia" >
+                <option *ngFor='let provincia of provincias' value="{{ provincia }}">{{ provincia }}</option>
+            </select>
+            <br/>
+        </div>
+
         <input type="submit" class="btn btn-primary" [disabled]='formRegister.invalid' value="Registrar">
     </form>
 </div>

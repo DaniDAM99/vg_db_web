@@ -15,9 +15,12 @@ export class RegistroComponent implements OnInit {
   formRegister = this.fb.group({
     email:['', [Validators.required, Validators.email]],
     username:['', Validators.required],
+    provincia:['', Validators.required],
     password:['', [Validators.required, Validators.minLength(4)]],
     password2:['', [Validators.required]],
   })
+
+  provincias: string[] = ['Albacete', 'Ciudad Real', 'Cuenca', 'Guadalajara', 'Toledo', 'Álava ', 'Alicante ', 'Almería ', 'Asturias ', 'Ávila', 'Badajoz', 'Islas Baleares', 'Barcelona ', 'Burgos ', 'Cáceres ', 'Cádiz ', 'Cantabria ', 'Castellón ', 'Ceuta ', 'Córdoba ', 'La Coruña ', 'Gerona ', 'Granada ', 'Guipúzcoa ', 'Huelva ', 'Huesca ', 'Jaén ', 'La Rioja ', 'León ', 'Lérida ', 'Lugo ', 'Madrid ', 'Málaga ', 'Melilla ', 'Murcia ', 'Navarra ', 'Orense ', 'Palencia ', 'Las Palmas ', 'Pontevedra ', 'Salamanca ', 'Santa Cruz de Tenerife ', 'Segovia ', 'Sevilla ', 'Soria ', 'Tarragona ', 'Teruel ', 'Valencia ', 'Valladolid ', 'Vizcaya ', 'Zamora ', 'Zaragoza']
 
   ngOnInit(): void {
   }

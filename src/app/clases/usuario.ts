@@ -6,6 +6,7 @@ export class Usuario {
     email?: String
     password?: String
     plataformas?: Plataforma
+    provincia?: string
 }
 
 export interface accesoUsuario {
